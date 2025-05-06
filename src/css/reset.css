@@ -5,7 +5,7 @@
 }
 
 .overlay.testing {
-  background: url("/overlay-testing-background.png");
+  background: url("../assets/overlay-testing-background.png");
 }
 
 body {

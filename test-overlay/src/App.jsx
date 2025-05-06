@@ -22,5 +22,7 @@ export default function App() {
     return <div>Loading styles…</div>;
   }
 
-  return <Overlay broadcast={mockBroadcastData} styles={cssText} />;
+  return (
+    <Overlay broadcast={mockBroadcastData} styles={cssText} preview={true} />
+  );
 }

@@ -29,9 +29,12 @@
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-replace": "^6.0.2",
     "@rollup/plugin-typescript": "^12.1.2",
+    "@rollup/plugin-url": "^8.0.2",
     "@types/postcss-js": "^4.0.4",
     "@types/react": "^19.1.2",
+    "postcss-url": "^10.1.3",
     "rollup": "^4.40.1",
+    "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
     "typescript": "^5.8.3"
