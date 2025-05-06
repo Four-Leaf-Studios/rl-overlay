@@ -40,7 +40,7 @@
     "typescript": "^5.8.3"
   },
   "dependencies": {
-    "@four-leaf-studios/rl-socket-hook": "^1.2.1",
+    "@four-leaf-studios/rl-socket-hook": "^1.2.2",
     "@rysh/json-to-css": "^1.0.0",
     "framer-motion": "^12.9.4"
   }

@@ -2,7 +2,7 @@
 "use client";
 
 import React, { ReactNode } from "react";
-import { RLProvider } from "@four-leaf-studios/rl-socket-hook";
+import { RLProvider, WebsocketData } from "@four-leaf-studios/rl-socket-hook";
 import { BroadcastProvider } from "./context/BroadcastContext";
 import type { Broadcast } from "./types";
 
@@ -39,25 +39,55 @@ export const Overlay = ({
     <BroadcastProvider broadcast={broadcast}>
       <RLProvider>
         <div
-          className={`overlay ${preview ? "testing" : ""}`}
           style={{
-            position: "relative",
+            display: "flex",
+            flexDirection: "row",
             width: "100%",
             height: "100%",
-            aspectRatio: "16/9",
-            maxWidth: "1920px",
-            maxHeight: "1080px",
-            display: "block",
+            maxWidth: "100%",
+            maxHeight: "100%",
           }}
         >
-          {children ?? (
-            <>
-              <Scoreboard />
-              <Teams />
-              <TargetPlayer />
-              <TargetBoost />
-              <Replay />
-            </>
+          {/* The overlay itself */}
+          <div
+            className={`overlay ${preview ? "testing" : ""}`}
+            style={{
+              position: "relative",
+              width: "100%",
+              height: "100%",
+              aspectRatio: "16/9",
+              maxWidth: "1920px",
+              maxHeight: "1080px",
+              display: "block",
+            }}
+          >
+            {children ?? (
+              <>
+                <Scoreboard />
+                <Teams />
+                <TargetPlayer />
+                <TargetBoost />
+                <Replay />
+              </>
+            )}
+          </div>
+
+          {/* Preview data panel on the right */}
+          {preview && (
+            <div
+              className="testing-data"
+              style={{
+                flexGrow: 1,
+                marginLeft: "1rem",
+                overflowY: "auto",
+                backgroundColor: "rgba(0,0,0,0.8)",
+                color: "#black",
+                fontFamily: "monospace",
+                maxHeight: "1080px",
+              }}
+            >
+              <WebsocketData />
+            </div>
           )}
         </div>
       </RLProvider>
