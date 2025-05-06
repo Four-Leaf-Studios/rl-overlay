@@ -1,0 +1,733 @@
+/* Whatever font you want to use */
+/* latin-ext */
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lato/v24/S6uyw4BMUTPHjxAwXjeu.woff2)
+    format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lato/v24/S6uyw4BMUTPHjx4wXg.woff2)
+    format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Place css variables here, any colors you want to use */
+.overlay {
+  --fallback-darker-mutual: black;
+}
+
+.main_bar {
+}
+
+.bottom_bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.scoreboard_box {
+  width: 785px;
+  height: 100px;
+  left: 0;
+  right: 0;
+  top: 0.5rem;
+  margin: auto;
+  position: relative;
+}
+
+.time_box {
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  width: 225px;
+  height: 100px;
+  background-color: var(--team-left-mutual);
+  clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--team-left-secondary);
+  text-align: center;
+  font-family: Lato;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  animation: slideIn 0.5s ease-in-out;
+}
+
+.name_box {
+}
+
+.scoreboard_team_box {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  height: 100px;
+  padding: 0 10px;
+  border-radius: 5px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+
+  --horizontal-padding: 4.2rem;
+}
+
+.scoreboard_team_box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: inherit;
+  z-index: -1;
+  display: flex;
+  border-radius: 5px;
+}
+
+.scoreboard_team_box::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 83.5%;
+  height: 79px;
+  flex-shrink: 0;
+  border-radius: 5px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  overflow: hidden;
+}
+
+.left_scoreboard_team_box {
+  left: 0;
+  justify-content: flex-start;
+  padding-left: var(--horizontal-padding);
+  background-color: var(--team-left-primary);
+}
+
+.left_scoreboard_team_box::after {
+  right: 0;
+  background: linear-gradient(
+    180deg,
+    var(--team-left-primary) 0%,
+    rgba(5, 0, 0, 0.53) 100%
+  );
+}
+
+.right_scoreboard_team_box {
+  right: 0;
+  justify-content: flex-end;
+  padding-right: var(--horizontal-padding);
+  background-color: var(--team-right-primary);
+}
+
+.right_scoreboard_team_box::after {
+  left: 0;
+  background: linear-gradient(
+    180deg,
+    var(--team-right-primary) 0%,
+    rgba(5, 0, 0, 0.53) 100%
+  );
+}
+
+.name_box {
+  position: absolute;
+  bottom: -29px;
+  z-index: -2;
+  padding: 2px 10px;
+
+  font-family: Lato;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: normal;
+  border-radius: 0 0 5px 5px;
+  background: var(--team-left-mutual);
+  animation: slideIn 0.5s ease-in-out;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 90%;
+}
+.left_name_box {
+  left: 0;
+  justify-content: flex-start;
+  text-align: left;
+  color: var(--team-left-secondary);
+}
+
+.right_name_box {
+  right: 0;
+  justify-content: flex-end;
+  text-align: right;
+  color: var(--team-right-secondary);
+}
+
+.logo_box {
+  height: 60%;
+  object-fit: contain;
+  padding: 0.1rem;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.left_logo_box {
+  order: 0;
+}
+
+.right_logo_box {
+  order: 1;
+}
+
+.score_box {
+  --margin: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+  text-align: center;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: Lato;
+  font-size: 60px;
+  font-weight: 800;
+  line-height: normal;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.left_score_box {
+  margin-left: var(--margin);
+  color: var(--team-left-secondary);
+  order: 1;
+}
+
+.right_score_box {
+  margin-right: var(--margin);
+  color: var(--team-right-secondary);
+  order: 0;
+}
+
+.series_box {
+  position: absolute;
+  top: -5.5rem;
+  width: 45px;
+  height: 79px;
+  flex-shrink: 0;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+  background: rgba(5, 0, 0, 0.53);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+
+  --horizontal-padding: 0.5rem;
+}
+
+.left_series_box {
+  left: var(--horizontal-padding);
+}
+
+.right_series_box {
+  right: var(--horizontal-padding);
+}
+
+.series_score_box {
+  width: 80%;
+  max-height: 11px;
+  flex: 1;
+  flex-shrink: 0;
+  border-radius: 5px;
+  background: #fff;
+  order: 2;
+}
+
+.series_score_box_point {
+}
+
+.left_series_score_box_point {
+  background: var(--team-left-secondary);
+}
+
+.right_series_score_box_point {
+  background: var(--team-right-secondary);
+}
+
+.series_score_box_empty {
+  order: 1;
+  border-radius: 5px;
+  background: rgba(217, 217, 217, 0.32);
+}
+
+.left_series_score_box_empty {
+}
+
+.right_series_score_box_empty {
+}
+
+.game_box {
+  display: none;
+}
+
+/* Replay Section */
+.replay_box {
+  position: absolute;
+  margin: auto;
+  left: 0px;
+  right: 0px;
+  z-index: 500;
+  width: 449px;
+  height: 101px;
+  background-color: #1d1d21;
+  clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.replay_box::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-color: rgb(255, 79, 79);
+  border-radius: 50%;
+  clip-path: circle(50% at 50% 50%);
+}
+
+.replay_text {
+  color: rgb(255, 79, 79);
+  text-align: center;
+  font-family: Lato;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+}
+
+.team_box {
+  position: absolute;
+  top: 49px;
+  display: flex;
+  width: fit-content;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 5px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.left_team_box {
+  align-items: flex-start;
+  left: -10px;
+}
+
+.right_team_box {
+  right: -10px;
+}
+
+.player_box {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr min-content;
+  gap: 0.5rem;
+  min-width: 347px;
+  border-radius: 5px;
+  background: var(--team-left-mutual);
+  padding: var(--padding);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  padding: 0.2rem 1rem;
+}
+
+.left_player_box {
+}
+.right_player_box {
+}
+
+.player_name {
+  font-family: Lato;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: normal;
+  padding: var(--padding);
+  text-transform: uppercase;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 300px;
+}
+.left_player_name {
+  grid-column: 1;
+  grid-row: 1;
+  text-align: left;
+}
+.right_player_name {
+  grid-column: 2;
+  text-align: right;
+}
+
+.player_boost {
+  font-family: Lato;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: normal;
+  padding: var(--padding);
+  text-transform: uppercase;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.left_player_boost {
+  grid-column: 2;
+  text-align: right;
+  color: var(--team-left-secondary);
+}
+.right_player_boost {
+  grid-column: 1;
+  text-align: left;
+  color: var(--team-right-secondary);
+}
+
+.boost_meter {
+  margin-bottom: 0.1rem;
+  width: 100%;
+  height: 6px;
+  background-color: var(--fallback-darker-mutual);
+  grid-column: -1/1;
+}
+.left_boost_meter {
+}
+.right_boost_meter {
+}
+
+.boost_meter_bar {
+}
+.left_boost_meter_bar {
+  background-color: var(--team-left-primary);
+}
+.right_boost_meter_bar {
+  background-color: var(--team-right-primary);
+}
+
+.stat_box {
+  position: absolute;
+  bottom: 0;
+  width: 672px;
+  height: 54.217px;
+  flex-shrink: 0;
+  margin-left: 52px;
+  margin-bottom: 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 0.4rem;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.left_stat_box {
+  background-color: var(--team-left-primary);
+  color: var(--team-left-secondary);
+}
+
+.right_stat_box {
+  background-color: var(--team-right-primary);
+  color: var(--team-right-secondary);
+}
+
+.stat_box_player {
+  font-family: Lato;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: normal;
+  padding: var(--padding);
+  text-transform: uppercase;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 40%;
+  text-align: right;
+}
+
+.stat_box_statistics {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 363.893px;
+  height: 78.522px;
+  flex-shrink: 0;
+  margin-bottom: 7.48px;
+  background: var(--team-left-mutual);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6.4px;
+}
+
+.stat_box_statistic {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  font-family: Lato;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: normal;
+}
+.stat_box_statistic_value {
+}
+.stat_box_statistic_name {
+  order: 0;
+}
+
+.stat_box_statistic_player_id,
+.stat_box_statistic_player_team,
+.stat_box_statistic_player_location,
+.stat_box_statistic_player_touches {
+  display: none;
+}
+
+.stat_box_player_boost {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  width: 100%;
+}
+
+.stat_box_player_boost .boost_meter {
+  display: block;
+  height: 9px;
+  width: 40%;
+  background: var(--team-left-mutual);
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.stat_box_player_boost .left_boost_meter_bar {
+  background: var(--team-left-secondary);
+}
+
+.stat_box_player_boost .right_boost_meter_bar {
+  background: var(--team-right-secondary);
+}
+
+.stat_box_player_boost .boost_meter,
+.stat_box_player_boost .boost_meter_bar {
+  margin: unset;
+}
+
+/* Target Boost (the circular meter) */
+.target_boost {
+  font-size: 3rem;
+  font-weight: bold;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: unset;
+  width: 200px;
+  height: 200px;
+  margin-bottom: 50px;
+  margin-right: 50px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  overflow: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.left_target_boost.target_boost {
+  color: var(--team-0-secondary);
+}
+
+.right_target_boost.target_boost {
+  color: var(--team-1-secondary);
+}
+
+.target_boost.entering {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.target_boost.exiting {
+  animation: fadeOut 0.5s ease-in-out;
+}
+
+.left_target_boost {
+  border: 5px solid var(--team-left-mutual);
+  background: #07132d;
+}
+
+.right_target_boost {
+  border: 5px solid var(--team-left-mutual);
+  background: var(--team-left-mutual);
+}
+
+.target_boost_container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.left_target_boost_container {
+}
+
+.right_target_boost_container {
+}
+
+.target_boost_meter {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease-in-out;
+}
+
+.left_target_boost_meter {
+  background: conic-gradient(
+    var(--team-left-primary-dark) calc(90deg * var(--target_boost) / 100),
+    var(--team-left-primary-light) calc(180deg * var(--target_boost) / 100),
+    var(--team-left-primary-light) calc(30deg * var(--target_boost) / 100),
+    var(--team-left-primary) calc(270deg * var(--target_boost) / 100),
+    var(--team-left-primary-dark) calc(360deg * var(--target_boost) / 100),
+    var(--fallback-darker-mutual) calc(0deg * var(--target_boost) / 100)
+  ) !important;
+  transition: all 0.5s ease-in-out;
+}
+
+.right_target_boost_meter {
+  background: conic-gradient(
+    var(--team-right-primary-dark) calc(90deg * var(--target_boost) / 100),
+    var(--team-right-primary-light) calc(180deg * var(--target_boost) / 100),
+    var(--team-right-primary-light) calc(30deg * var(--target_boost) / 100),
+    var(--team-right-primary) calc(270deg * var(--target_boost) / 100),
+    var(--team-right-primary-dark) calc(360deg * var(--target_boost) / 100),
+    var(--fallback-darker-mutual) calc(0deg * var(--target_boost) / 100)
+  ) !important;
+
+  transition: all 0.5s ease-in-out;
+}
+
+.target_boost_meter_inner {
+  position: absolute;
+  margin: auto;
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  z-index: 50;
+}
+
+.left_target_boost_meter_inner {
+  background: var(--team-left-mutual);
+}
+
+.right_target_boost_meter_inner {
+  background: var(--team-left-mutual);
+}
+
+.target_boost_svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.target_boost_svg_circle {
+  stroke-dasharray: 4 25%;
+  stroke-width: 41;
+  stroke-dashoffset: 18;
+  fill: transparent;
+}
+
+.left_target_boost_svg_circle {
+  stroke: var(--team-left-mutual);
+}
+
+.right_target_boost_svg_circle {
+  stroke: var(--team-left-mutual);
+}
+
+.target_boost_value {
+  position: absolute;
+  z-index: 500;
+  color: white;
+}
+
+.left_target_boost_value {
+  color: var(--team-left-secondary);
+}
+
+.right_target_boost_value {
+  color: var(--team-right-secondary);
+}
+
+/* Replay Section */
+.replay_box {
+  position: absolute;
+  margin: auto;
+  left: 0px;
+  right: 0px;
+  z-index: 500;
+  width: 449px;
+  height: 101px;
+  background-color: #1d1d21;
+  clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.replay_box::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-color: rgb(255, 79, 79);
+  border-radius: 50%;
+  clip-path: circle(50% at 50% 50%);
+}
+
+.replay_text {
+  color: rgb(255, 79, 79);
+  text-align: center;
+  font-family: Lato;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+}

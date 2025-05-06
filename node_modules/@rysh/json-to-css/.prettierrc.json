@@ -1,0 +1,8 @@
+{
+  "arrowParens": "always",
+  "htmlWhitespaceSensitivity": "ignore",
+  "printWidth": 120,
+  "quoteProps": "consistent",
+  "semi": false,
+  "singleQuote": true
+}

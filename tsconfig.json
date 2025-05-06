@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ES5",              // still emit ES5-compatible code
+    "lib": [
+      "DOM",                      // if you’re targeting browsers
+      "ES2015",                   // includes Array.from, Map, Set, etc
+      "ES2016",
+      "ES2017"
+    ],
+    "module": "ESNext",
+    "jsx": "react",
+    "declaration": true,
+    "declarationDir": "dist/types",
+    "outDir": "dist",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "moduleResolution": "node"
+  },
+  "include": ["src", "test-overlay/src/mockBroadcast.js"]
+}

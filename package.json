@@ -1,0 +1,44 @@
+{
+  "name": "@four-leaf-studios/rl-overlay",
+  "version": "1.0.0",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/types/index.d.ts",
+  "scripts": {
+    "build": "rollup -c",
+    "prepare": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Four-Leaf-Studios/rl-overlay.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Four-Leaf-Studios/rl-overlay/issues"
+  },
+  "homepage": "https://github.com/Four-Leaf-Studios/rl-overlay#readme",
+  "peerDependencies": {
+    "react": "^18 || ^19",
+    "react-dom": "^18 || ^19"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.3",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-replace": "^6.0.2",
+    "@rollup/plugin-typescript": "^12.1.2",
+    "@types/postcss-js": "^4.0.4",
+    "@types/react": "^19.1.2",
+    "rollup": "^4.40.1",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@four-leaf-studios/rl-socket-hook": "^1.2.1",
+    "@rysh/json-to-css": "^1.0.0",
+    "framer-motion": "^12.9.4"
+  }
+}

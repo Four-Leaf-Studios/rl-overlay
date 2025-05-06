@@ -1,0 +1,280 @@
+/* overlay-reset.css */
+.overlay * {
+  all: unset;
+  line-height: initial;
+}
+
+.overlay.testing {
+  background: url("/overlay-testing-background.png");
+}
+
+body {
+  background-color: transparent !important;
+}
+
+.scoreboard_box {
+  display: flex;
+  flex-flow: column;
+}
+
+.replay_box {
+  position: absolute;
+}
+.top_bar {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  text-align: center;
+  width: fit-content;
+  align-items: center;
+  position: relative;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
+  padding-top: 0;
+  color: #fff;
+}
+.main_bar {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
+  padding-top: 0;
+  color: #fff;
+}
+
+.bottom_bar {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  text-align: center;
+  width: fit-content;
+  position: relative;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
+  padding-top: 0;
+  color: #fff;
+}
+
+.scoreboard_team_box {
+  display: flex;
+}
+.left_scoreboard_team_box {
+  order: 0;
+}
+
+.right_scoreboard_team_box {
+  order: 2;
+}
+
+.time_box {
+  order: 1;
+}
+
+/* Left Side of scoreboard */
+.left_score_box {
+  order: 3;
+}
+
+.left_name_box {
+  order: 2;
+}
+
+.left_logo_box {
+  order: 1;
+}
+
+/* Righ Side */
+.right_score_box {
+  order: 1;
+}
+
+.right_name_box {
+  order: 2;
+}
+
+.right_logo_box {
+  order: 3;
+}
+
+/* Default Styles */
+.logo_box {
+  object-fit: scale-down;
+  box-sizing: border-box;
+}
+
+.name_box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.series_box {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.left_series_box {
+  order: 0;
+}
+
+.right_series_box {
+  order: 2;
+  flex-direction: row-reverse;
+}
+
+.score_box,
+.time_box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game_box {
+  order: 1;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.team_box {
+  display: flex;
+  flex-flow: column;
+  color: #fff;
+}
+
+.player_box {
+  display: flex;
+  position: relative;
+}
+
+.boost_meter_bar {
+  height: 100%;
+  transition: width 0.35s;
+  display: block;
+}
+
+.right_boost_meter_bar {
+  margin-left: auto;
+}
+
+.stat_box {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: #fff;
+  align-items: center;
+}
+
+.stat_box_statistics {
+  display: flex;
+}
+
+.stat_box_statistic_name {
+  order: 2;
+}
+
+.stat_box_statistic_value {
+  font-weight: bold;
+}
+
+.stat_box_player_boost {
+  margin-top: 5px;
+}
+
+/* Target Boost */
+.target_boost {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: #fff;
+  align-items: center;
+}
+
+.target_boost_container {
+  display: flex;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  color: #fff;
+  align-items: center;
+}
+
+.target_boost_meter {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+}
+
+.left_target_boost_meter {
+  background: conic-gradient(
+    var(--team-left-primary, #0052cc) calc(var(--target_boost) * 1%),
+    transparent calc(var(--target_boost) * 1%)
+  );
+}
+
+.right_target_boost_meter {
+  background: conic-gradient(
+    var(--team-right-primary, #ff6600) calc(var(--target_boost) * 1%),
+    transparent calc(var(--target_boost) * 1%)
+  );
+}
+
+.target_boost_meter_inner {
+  position: absolute;
+  inset: 5px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.target_boost_svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.target_boost_svg_circle {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.2);
+  stroke-width: 2;
+}
+
+.target_boost_value {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Replay Box */
+.replay_box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px 20px;
+  border-radius: 4px;
+}
+
+.replay_text {
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
