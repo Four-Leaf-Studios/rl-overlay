@@ -1,9 +1,10 @@
 import React from "react";
 
 import { memo } from "react";
+import { Team } from "./types";
 
 interface ScoreboardSeriesBoxProps {
-  team: any;
+  team: Team;
   seriesNumber: number;
 }
 
@@ -17,10 +18,10 @@ export const ScoreboardSeriesBoxComponent: React.FC<
   const pointsCount = Math.ceil(bestOf / 2);
   const points = Array.from({ length: pointsCount }, (_, index) => index);
 
-  const isLefTeam = team.id === 0;
-  const modifier = isLefTeam ? "left" : "right";
+  const isLeftTeam = team.id === "0";
+  const modifier = isLeftTeam ? "left" : "right";
   const teamColor =
-    team.color?.primary_color || (isLefTeam ? "#0052cc" : "#ff6600");
+    team.color?.primary_color || (isLeftTeam ? "#0052cc" : "#ff6600");
 
   return (
     <div

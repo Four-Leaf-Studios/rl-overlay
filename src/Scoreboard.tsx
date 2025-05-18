@@ -7,6 +7,7 @@ import Timer from "./Timer";
 import ScoreboardSeriesBox from "./ScoreboardSeriesBox";
 import ScoreboardGameBox from "./ScoreboardGameBox";
 import useReplay from "./hooks/useReplay";
+import { Team } from "./types";
 
 export const Scoreboard = () => {
   const broadcast = useBroadcast();
@@ -41,7 +42,7 @@ export const Scoreboard = () => {
         </div>
 
         <div className="bottom_bar">
-          {broadcast.teams.map((team: any, idx: number) => (
+          {broadcast.teams.map((team: Team, idx: number) => (
             <ScoreboardSeriesBox
               key={team.id || idx}
               team={team}
