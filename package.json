@@ -4,6 +4,9 @@
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "types": "dist/types/index.d.ts",
+  "publishConfig": {
+    "access": "restricted"
+  },
   "scripts": {
     "build": "rollup -c",
     "prepare": "npm run build"
