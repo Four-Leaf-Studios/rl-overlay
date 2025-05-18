@@ -1,6 +1,7 @@
 import React from "react";
+import { Team } from "./types";
 interface ScoreboardSeriesBoxProps {
-    team: any;
+    team: Team;
     seriesNumber: number;
 }
 export declare const ScoreboardSeriesBoxComponent: React.FC<ScoreboardSeriesBoxProps>;
