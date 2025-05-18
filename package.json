@@ -1,5 +1,5 @@
 {
-  "name": "@four-leaf-studios/rl-overlay-editor",
+  "name": "@four-leaf-studios/rl-overlay",
   "version": "1.0.0",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
