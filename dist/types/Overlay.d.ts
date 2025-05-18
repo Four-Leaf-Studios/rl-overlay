@@ -4,11 +4,6 @@ import { CSSJSON } from "./hooks/useOverlayStyles";
 import "./css/reset.css";
 export type OverlayProps = {
     broadcast: Broadcast;
-    /**
-     * Either:
-     * - a raw CSS string, or
-     * - a JSON map of CSS rules
-     */
     styles?: string | CSSJSON;
     children?: ReactNode;
     preview?: boolean;
