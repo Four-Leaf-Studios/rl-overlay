@@ -19,6 +19,6 @@ const TimerComponent: React.FC = () => {
   return <span className="time_box">{formattedTime}</span>;
 };
 
-const Timer = memo(TimerComponent);
+export const Timer = memo(TimerComponent);
 Timer.displayName = "Timer";
 export default Timer;

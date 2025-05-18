@@ -8,7 +8,7 @@ type Props = {
   targetPlayer: PlayerState;
 };
 
-const TargetPlayerStats = ({ targetPlayer }: Props) => (
+export const TargetPlayerStats = ({ targetPlayer }: Props) => (
   <ul className="stat_box_statistics">
     <StatItem id="id" label="ID" value={targetPlayer.id} />
     <StatItem id="team" label="Team" value={targetPlayer.team} />

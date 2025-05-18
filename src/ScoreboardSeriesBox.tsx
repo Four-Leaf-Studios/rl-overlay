@@ -7,10 +7,9 @@ interface ScoreboardSeriesBoxProps {
   seriesNumber: number;
 }
 
-const ScoreboardSeriesBoxComponent: React.FC<ScoreboardSeriesBoxProps> = ({
-  team,
-  seriesNumber,
-}) => {
+export const ScoreboardSeriesBoxComponent: React.FC<
+  ScoreboardSeriesBoxProps
+> = ({ team, seriesNumber }) => {
   if (!seriesNumber) return null;
 
   const bestOf = Number(seriesNumber);

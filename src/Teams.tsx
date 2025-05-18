@@ -1,7 +1,7 @@
 import React from "react";
 import Team from "./Team";
 
-const Teams = () => {
+export const Teams = () => {
   return (
     <>
       <Team id={"0"} />

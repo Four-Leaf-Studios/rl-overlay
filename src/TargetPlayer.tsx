@@ -1,4 +1,3 @@
-import { useEventSelector } from "@four-leaf-studios/rl-socket-hook";
 import { AnimatePresence, motion } from "framer-motion";
 import React, { memo } from "react";
 import { useBroadcast } from "./context/BroadcastContext";
@@ -6,7 +5,7 @@ import PlayerBoost from "./PlayerBoost";
 import TargetPlayerStats from "./TargetPlayerStats";
 import useTargetPlayer from "./hooks/useTargetPlayer";
 
-const TargetPlayer = () => {
+export const TargetPlayer = () => {
   const broadcast = useBroadcast();
   const targetPlayer = useTargetPlayer();
 

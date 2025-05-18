@@ -6,7 +6,7 @@ interface ScoreboardTeamProps {
   team: Team;
 }
 
-const ScoreboardTeam: React.FC<ScoreboardTeamProps> = ({ team }) => {
+export const ScoreboardTeam: React.FC<ScoreboardTeamProps> = ({ team }) => {
   const score = useEventSelector(
     "game:update_state",
     (state) => state?.game.teams?.[team.id]?.score

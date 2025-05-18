@@ -1,14 +1,14 @@
 import { useEventSelector } from "@four-leaf-studios/rl-socket-hook";
 import { motion, AnimatePresence } from "framer-motion";
 import React, { memo } from "react";
-import { Team } from "./types";
+import { Team as TeamType } from "./types";
 import Player from "./Player";
 
 type Props = {
-  id: Team["id"];
+  id: TeamType["id"];
 };
 
-const Team = ({ id }: Props) => {
+export const Team = ({ id }: Props) => {
   const players = useEventSelector("game:update_state", (state) => {
     return (
       state?.players &&

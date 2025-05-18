@@ -17,7 +17,7 @@ type StatItemProps<K extends PrimitiveKeys<PlayerState>> = {
   value: PlayerState[K]; // guaranteed to be string|number|boolean
 };
 
-const StatItem = <K extends PrimitiveKeys<PlayerState>>({
+export const StatItem = <K extends PrimitiveKeys<PlayerState>>({
   id,
   label,
   value,

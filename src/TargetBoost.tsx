@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import React, { memo } from "react";
 import useTargetPlayer from "./hooks/useTargetPlayer";
 
-const TargetBoost = () => {
+export const TargetBoost = () => {
   const initialized = useEventSelector(
     "game:update_state",
     (state) => state?.hasGame

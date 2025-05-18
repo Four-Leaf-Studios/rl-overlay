@@ -1,7 +1,7 @@
 import React from "react";
 import useReplay from "./hooks/useReplay";
 
-const Replay = () => {
+export const Replay = () => {
   const { active: replayActive } = useReplay();
 
   if (!replayActive) {

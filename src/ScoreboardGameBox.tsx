@@ -7,7 +7,9 @@ interface ScoreboardGameBoxProps {
   broadcast: Broadcast;
 }
 
-const ScoreboardGameBox: React.FC<ScoreboardGameBoxProps> = ({ broadcast }) => {
+export const ScoreboardGameBox: React.FC<ScoreboardGameBoxProps> = ({
+  broadcast,
+}) => {
   const gameNumber = useMemo(() => {
     if (!broadcast.teams || broadcast.teams.length < 2) return 1;
     const team0Score = broadcast.teams[0].series_score || 0;

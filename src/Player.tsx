@@ -7,7 +7,7 @@ type Props = {
   player: PlayerState;
 };
 
-const Player = ({ player }: Props) => {
+export const Player = ({ player }: Props) => {
   const modifier = player.team === 0 ? "left" : "right";
 
   return (

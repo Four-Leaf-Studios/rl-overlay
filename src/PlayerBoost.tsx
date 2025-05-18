@@ -7,7 +7,7 @@ type Props = {
   boost: PlayerState["boost"];
 };
 
-const PlayerBoost = ({ team, boost }: Props) => {
+export const PlayerBoost = ({ team, boost }: Props) => {
   const boostPercent = Math.min(Math.max(boost, 0), 100);
   const modifier = team === 0 ? "left" : "right";
 

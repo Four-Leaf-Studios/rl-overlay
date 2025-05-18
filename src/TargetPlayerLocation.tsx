@@ -6,7 +6,7 @@ type Props = {
   location: PlayerState["location"];
 };
 
-const TargetPlayerLocation = ({ location }: Props) => {
+export const TargetPlayerLocation = ({ location }: Props) => {
   return (
     <motion.div
       className="stat_box_statistic stat_box_statistic_player_location"

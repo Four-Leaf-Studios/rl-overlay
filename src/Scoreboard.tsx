@@ -8,7 +8,7 @@ import ScoreboardSeriesBox from "./ScoreboardSeriesBox";
 import ScoreboardGameBox from "./ScoreboardGameBox";
 import useReplay from "./hooks/useReplay";
 
-const Scoreboard = () => {
+export const Scoreboard = () => {
   const broadcast = useBroadcast();
   const showGameComponents = useShowGameComponents();
   const { active: replayActive } = useReplay();
