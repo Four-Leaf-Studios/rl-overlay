@@ -1,6 +1,6 @@
 {
   "name": "@four-leaf-studios/rl-overlay",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "types": "dist/types/index.d.ts",
@@ -43,7 +43,7 @@
     "typescript": "^5.8.3"
   },
   "dependencies": {
-    "@four-leaf-studios/rl-socket-hook": "^1.2.2",
+    "@four-leaf-studios/rl-socket-hook": "^1.2.4",
     "@rysh/json-to-css": "^1.0.0",
     "framer-motion": "^12.9.4"
   }
