@@ -9,5 +9,5 @@ type StatItemProps<K extends PrimitiveKeys<PlayerState>> = {
     label: string;
     value: PlayerState[K];
 };
-declare const StatItem: <K extends PrimitiveKeys<PlayerState>>({ id, label, value, }: StatItemProps<K>) => React.JSX.Element;
+export declare const StatItem: <K extends PrimitiveKeys<PlayerState>>({ id, label, value, }: StatItemProps<K>) => React.JSX.Element;
 export default StatItem;

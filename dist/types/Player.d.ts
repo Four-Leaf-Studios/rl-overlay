@@ -3,5 +3,6 @@ import { PlayerState } from "@four-leaf-studios/rl-socket-hook";
 type Props = {
     player: PlayerState;
 };
+export declare const Player: ({ player }: Props) => React.JSX.Element;
 declare const _default: React.MemoExoticComponent<({ player }: Props) => React.JSX.Element>;
 export default _default;

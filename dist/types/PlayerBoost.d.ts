@@ -4,5 +4,6 @@ type Props = {
     team: PlayerState["team"];
     boost: PlayerState["boost"];
 };
+export declare const PlayerBoost: ({ team, boost }: Props) => React.JSX.Element;
 declare const _default: React.MemoExoticComponent<({ team, boost }: Props) => React.JSX.Element>;
 export default _default;

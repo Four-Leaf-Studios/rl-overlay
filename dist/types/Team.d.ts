@@ -1,8 +1,8 @@
 import React from "react";
-import { Team } from "./types";
+import { Team as TeamType } from "./types";
 type Props = {
-    id: Team["id"];
+    id: TeamType["id"];
 };
-declare const Team: ({ id }: Props) => React.JSX.Element | null;
+export declare const Team: ({ id }: Props) => React.JSX.Element | null;
 declare const MemoizedTeam: React.MemoExoticComponent<({ id }: Props) => React.JSX.Element | null>;
 export default MemoizedTeam;
