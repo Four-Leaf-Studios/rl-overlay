@@ -6,7 +6,7 @@ export default function App() {
   const [cssText, setCssText] = useState("");
 
   useEffect(() => {
-    fetch("/mock-css.css") // make sure mock-css.css lives in your public/ folder
+    fetch("/mock-css.css")
       .then((res) => {
         if (!res.ok) throw new Error("Failed to load CSS");
         return res.text();
