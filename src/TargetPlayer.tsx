@@ -1,3 +1,5 @@
+// src/components/TargetPlayer.tsx
+
 import { AnimatePresence, motion } from "framer-motion";
 import React, { memo } from "react";
 import { useBroadcast } from "./context/BroadcastContext";
@@ -9,9 +11,18 @@ export const TargetPlayer = () => {
   const broadcast = useBroadcast();
   const targetPlayer = useTargetPlayer();
 
-  if (!targetPlayer || !broadcast) return null;
+  // Safeguard conditions
+  if (
+    !targetPlayer ||
+    !broadcast ||
+    !broadcast.teams ||
+    !broadcast.teams[targetPlayer.team]
+  ) {
+    return null;
+  }
 
-  const teamColor = broadcast.teams[targetPlayer.team].color?.primary_color;
+  const teamData = broadcast.teams[targetPlayer.team];
+  const teamColor = teamData?.color?.primary_color ?? "#ffffff";
   const modifier = targetPlayer.team === 0 ? "left" : "right";
 
   return (
@@ -23,7 +34,7 @@ export const TargetPlayer = () => {
         initial={{ x: modifier === "left" ? -300 : 300, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         exit={{ x: modifier === "left" ? -300 : 300, opacity: 0 }}
-        transition={{ duration: 0.8, ease: [0.77, 0, 0.175, 1] }} // Quartic easing equivalent
+        transition={{ duration: 0.8, ease: [0.77, 0, 0.175, 1] }}
       >
         <motion.div
           className={`stat_box_player ${modifier}_stat_box_player`}
