@@ -9,7 +9,7 @@ type Props = {
 };
 
 export const TargetPlayerStats = ({ targetPlayer }: Props) => (
-  <ul className="stat_box_statistics">
+  <ul data-component-id="TargetPlayerStats" className="stat_box_statistics">
     <StatItem id="id" label="ID" value={targetPlayer.id} />
     <StatItem id="team" label="Team" value={targetPlayer.team} />
     <StatItem id="score" label="Score" value={targetPlayer.score} />

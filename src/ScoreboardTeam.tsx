@@ -18,6 +18,7 @@ export const ScoreboardTeam: React.FC<ScoreboardTeamProps> = ({ team }) => {
 
   return (
     <div
+      data-component-id="ScoreboardTeam"
       className={`scoreboard_team_box ${modifier}_scoreboard_team_box`}
       style={{ "--team-color": teamColor } as React.CSSProperties}
     >

@@ -28,6 +28,7 @@ export const TargetPlayer = () => {
   return (
     <AnimatePresence mode="wait">
       <motion.div
+        data-component-id="TargetPlayer"
         key={targetPlayer.id}
         className={`stat_box ${modifier}_stat_box`}
         style={{ "--team-color": teamColor } as React.CSSProperties}

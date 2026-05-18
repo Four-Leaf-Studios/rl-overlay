@@ -24,6 +24,7 @@ export const Scoreboard = () => {
     <AnimatePresence mode="wait">
       <motion.div
         key={broadcast.id} // Ensures animation runs when broadcast updates
+        data-component-id="Scoreboard"
         className="scoreboard_box"
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}

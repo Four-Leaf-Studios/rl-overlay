@@ -1,0 +1,96 @@
+import type { Broadcast, OverlayObject } from "../src/types";
+
+export const mockBroadcast: Broadcast = {
+  id: "broadcast-1",
+  name: "Test Broadcast",
+  status: "active",
+  overlay_id: "overlay-1",
+  featured: false,
+  top_info_text: "Grand Finals",
+  series_number: 5,
+  created_at: "2025-01-01T00:00:00Z",
+  created_by: null,
+  teams: [
+    {
+      id: "0",
+      broadcast_id: "broadcast-1",
+      session_id: null,
+      organization_id: null,
+      color_id: null,
+      name: "Blue Strikers",
+      series_score: 2,
+      logo: null,
+      side: "blue",
+      created_at: "2025-01-01T00:00:00Z",
+      created_by: null,
+      color: {
+        id: "color-1",
+        name: "Blue",
+        primary_color: "#0052cc",
+        secondary_color: "#ffffff",
+        mutual_color: "#00a8ff",
+        created_at: "2025-01-01T00:00:00Z",
+        created_by: null,
+      },
+    },
+    {
+      id: "1",
+      broadcast_id: "broadcast-1",
+      session_id: null,
+      organization_id: null,
+      color_id: null,
+      name: "Orange Thunder",
+      series_score: 1,
+      logo: null,
+      side: "orange",
+      created_at: "2025-01-01T00:00:00Z",
+      created_by: null,
+      color: {
+        id: "color-2",
+        name: "Orange",
+        primary_color: "#ff6600",
+        secondary_color: "#ffffff",
+        mutual_color: "#ffaa00",
+        created_at: "2025-01-01T00:00:00Z",
+        created_by: null,
+      },
+    },
+  ],
+};
+
+export const mockOverlay: OverlayObject = {
+  components: [
+    {
+      id: "comp-1",
+      name: "Scoreboard",
+      css: ".scoreboard_box { display: flex; }",
+      code_id: "Scoreboard",
+      position: { top: 0, left: 400, width: 500, height: 100 },
+    },
+    {
+      id: "comp-2",
+      name: "Teams",
+      css: ".team_box { display: flex; }",
+      code_id: "Teams",
+      position: { top: 200, left: 0, width: 300, height: 600 },
+    },
+  ],
+};
+
+export const mockPlayerState = {
+  id: "player-1",
+  name: "TestPlayer",
+  team: 0,
+  score: 200,
+  goals: 1,
+  assists: 2,
+  shots: 5,
+  saves: 3,
+  touches: 40,
+  boost: 75,
+  speed: 1200,
+  isDead: false,
+  isSonic: false,
+  hasBall: false,
+  location: { X: 100.5, Y: -200.3, Z: 50.0 },
+};

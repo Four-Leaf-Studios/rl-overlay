@@ -25,6 +25,7 @@ export const Team = ({ id }: Props) => {
 
   return (
     <motion.div
+      data-component-id="Team"
       className={`team_box ${modifier}_team_box`}
       initial={{ x: isLeft ? -300 : 300, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}

@@ -13,6 +13,7 @@ export const Player = ({ player }: Props) => {
   return (
     <motion.div
       key={player.id}
+      data-component-id="Player"
       className={`player_box ${modifier}_player_box`}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}

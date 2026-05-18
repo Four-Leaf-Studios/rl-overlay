@@ -12,7 +12,10 @@ export const PlayerBoost = ({ team, boost }: Props) => {
   const modifier = team === 0 ? "left" : "right";
 
   return (
-    <div className={`boost_meter ${modifier}_boost_meter`}>
+    <div
+      data-component-id="PlayerBoost"
+      className={`boost_meter ${modifier}_boost_meter`}
+    >
       <motion.div
         className={`boost_meter_bar ${modifier}_boost_meter_bar`}
         initial={{ width: "0%" }}

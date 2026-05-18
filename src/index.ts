@@ -13,5 +13,7 @@ export * from "./TargetPlayerLocation";
 export * from "./TargetPlayerStats";
 export * from "./Team";
 export * from "./Timer";
+export * from "./OverlaySlot";
 export * from "@four-leaf-studios/rl-socket-hook";
 export * from "./hooks/index";
+export * from "./registry";

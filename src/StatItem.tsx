@@ -22,7 +22,10 @@ export const StatItem = <K extends PrimitiveKeys<PlayerState>>({
   label,
   value,
 }: StatItemProps<K>) => (
-  <li className={`stat_box_statistic stat_box_statistic_player_${id}`}>
+  <li
+    data-component-id="StatItem"
+    className={`stat_box_statistic stat_box_statistic_player_${id}`}
+  >
     <span className="stat_box_statistic_name">{label}</span>
     <span className="stat_box_statistic_value">{value}</span>
   </li>

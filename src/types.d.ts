@@ -57,3 +57,23 @@ export type Broadcast = {
   teams: Team[];
   overlay?: Overlay;
 };
+
+// Each overlay component
+export type Position = {
+  top?: number;
+  left?: number;
+  width?: number | string;
+  height?: number | string;
+};
+
+export type OverlayComponentData = {
+  id: string;
+  name: string;
+  css: string;
+  code_id: string;
+  position?: Position;
+};
+
+export type OverlayObject = {
+  components: OverlayComponentData[];
+};

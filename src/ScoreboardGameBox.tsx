@@ -1,6 +1,4 @@
-import React from "react";
-
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 import { Broadcast } from "./types";
 
 interface ScoreboardGameBoxProps {
@@ -18,7 +16,7 @@ export const ScoreboardGameBox: React.FC<ScoreboardGameBoxProps> = ({
   }, [broadcast.teams]);
 
   return (
-    <div className="game_box">
+    <div data-component-id="ScoreboardGameBox" className="game_box">
       Game {gameNumber} - BO {broadcast.series_number}
     </div>
   );

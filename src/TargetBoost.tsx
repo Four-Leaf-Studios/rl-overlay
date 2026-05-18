@@ -17,6 +17,7 @@ export const TargetBoost = () => {
   return (
     <AnimatePresence mode="wait">
       <motion.div
+        data-component-id="TargetBoost"
         key={targetPlayer.id}
         className={`target_boost ${modifier}_target_boost`}
         initial={{ x: 400, opacity: 0 }}

@@ -1,6 +1,4 @@
-import React from "react";
-
-import { memo } from "react";
+import React, { memo } from "react";
 import { Team } from "./types";
 
 interface ScoreboardSeriesBoxProps {
@@ -25,6 +23,7 @@ export const ScoreboardSeriesBoxComponent: React.FC<
 
   return (
     <div
+      data-component-id="ScoreboardSeriesBox"
       className={`series_box ${modifier}_series_box`}
       style={{ "--team-color": teamColor } as React.CSSProperties}
     >

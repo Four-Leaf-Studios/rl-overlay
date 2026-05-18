@@ -9,6 +9,7 @@ type Props = {
 export const TargetPlayerLocation = ({ location }: Props) => {
   return (
     <motion.div
+      data-component-id="TargetPlayerLocation"
       className="stat_box_statistic stat_box_statistic_player_location"
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}

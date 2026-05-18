@@ -1,15 +1,14 @@
-import React, { ReactNode } from "react";
-import type { Broadcast } from "./types";
-import { CSSJSON } from "./hooks/useOverlayStyles";
+import React from "react";
+import type { Broadcast, OverlayObject } from "./types";
 import "./css/reset.css";
 export type OverlayProps = {
     broadcast: Broadcast;
-    styles?: string | CSSJSON;
-    children?: ReactNode;
+    overlay: OverlayObject;
     preview?: boolean;
+    renderSlot?: (comp: OverlayObject["components"][number], Comp: any) => React.ReactNode;
 };
 export declare const Overlay: {
-    ({ broadcast, styles, preview, children, }: OverlayProps): React.JSX.Element;
+    ({ broadcast, overlay, preview, renderSlot, }: OverlayProps): React.JSX.Element;
     Scoreboard: () => React.JSX.Element | null;
     Teams: () => React.JSX.Element;
     TargetPlayer: React.MemoExoticComponent<() => React.JSX.Element | null>;
