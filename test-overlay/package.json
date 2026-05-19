@@ -10,6 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@four-leaf-studios/rl-overlay": "file:..",
+    "@four-leaf-studios/rl-socket-hook": "^1.2.4",
+    "framer-motion": "^12.9.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },

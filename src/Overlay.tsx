@@ -4,6 +4,7 @@ import React from "react";
 import { RLProvider, WebsocketData } from "@four-leaf-studios/rl-socket-hook";
 import { BroadcastProvider } from "./context/BroadcastContext";
 import type { Broadcast, OverlayObject } from "./types";
+import { useOverlayStyles } from "./hooks/useOverlayStyles";
 
 import Scoreboard from "./Scoreboard";
 import Teams from "./Teams";
@@ -21,7 +22,7 @@ export type OverlayProps = {
   preview?: boolean;
   renderSlot?: (
     comp: OverlayObject["components"][number],
-    Comp: any
+    Comp: any,
   ) => React.ReactNode;
 };
 
@@ -32,6 +33,9 @@ export const Overlay = ({
   renderSlot,
 }: OverlayProps) => {
   const { components } = overlay;
+
+  // Inject team color CSS variables (--team-left-primary, etc.)
+  useOverlayStyles(broadcast);
 
   // Collect CSS into one block
   const cssString = components.map((c) => c.css).join("\n");
