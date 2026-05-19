@@ -1,11 +1,11 @@
 {
   "name": "@four-leaf-studios/rl-overlay",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "types": "dist/types/index.d.ts",
   "publishConfig": {
-    "access": "restricted"
+    "access": "public"
   },
   "scripts": {
     "build": "rollup -c",
@@ -52,6 +52,6 @@
     "vitest": "^4.1.6"
   },
   "dependencies": {
-    "@rysh/json-to-css": "^1.0.0"
+    "@rysh/json-to-css": "^1.0.1"
   }
 }

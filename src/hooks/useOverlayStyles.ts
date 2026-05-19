@@ -12,11 +12,10 @@ export type CSSJSON = {
 /**
  * Hook that injects both team-color variables (from Broadcast)
  * and optional custom styles (string or JSON) into the document.
- * Uses `@rysh/json-to-css` for JSON → CSS conversion.
  */
 export function useOverlayStyles(
   broadcast: Broadcast,
-  styles?: string | CSSJSON
+  styles?: string | CSSJSON,
 ) {
   useEffect(() => {
     if (!broadcast?.teams) return;
