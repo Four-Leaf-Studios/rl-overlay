@@ -1,10 +1,10 @@
 import React, { memo, type ReactNode } from "react";
-import type { OverlayComponentData } from "./types";
+import type { OverlayComponentConfig } from "./types";
 
 type OverlaySlotProps = {
-  component: OverlayComponentData;
+  component: OverlayComponentConfig;
   children: ReactNode;
-} & React.HTMLAttributes<HTMLDivElement>; // ✅ allow div props
+} & React.HTMLAttributes<HTMLDivElement>;
 
 export const OverlaySlot = ({
   component,
@@ -13,6 +13,10 @@ export const OverlaySlot = ({
 }: OverlaySlotProps) => {
   const { id, name, position } = component;
 
+  // Prefer x/y (new format) over legacy top/left
+  const top = position?.y !== undefined ? position.y : (position?.top ?? 0);
+  const left = position?.x !== undefined ? position.x : (position?.left ?? 0);
+
   return (
     <div
       className="overlay-slot"
@@ -20,8 +24,8 @@ export const OverlaySlot = ({
       data-component-name={name}
       style={{
         position: "absolute",
-        top: position?.top ?? 0,
-        left: position?.left ?? 0,
+        top,
+        left,
         width: position?.width ?? "auto",
         height: position?.height ?? "auto",
       }}

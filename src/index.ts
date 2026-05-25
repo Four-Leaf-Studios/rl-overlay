@@ -17,3 +17,13 @@ export * from "./OverlaySlot";
 export * from "@four-leaf-studios/rl-socket-hook";
 export * from "./hooks/index";
 export * from "./registry";
+
+// New exports
+export * from "./binding/bindingResolver";
+export * from "./rules/ruleEngine";
+export * from "./rules/evaluateCondition";
+export * from "./context/GameStateContext";
+export * from "./components/CustomHtmlComponent";
+export * from "./components/GoalPopup";
+export * from "./components/StatFeed";
+export * from "./components/OverlayComponentRenderer";

@@ -1,7 +1,7 @@
 import React, { type ReactNode } from "react";
-import type { OverlayComponentData } from "./types";
+import type { OverlayComponentConfig } from "./types";
 type OverlaySlotProps = {
-    component: OverlayComponentData;
+    component: OverlayComponentConfig;
     children: ReactNode;
 } & React.HTMLAttributes<HTMLDivElement>;
 export declare const OverlaySlot: ({ component, children, ...rest }: OverlaySlotProps) => React.JSX.Element;
