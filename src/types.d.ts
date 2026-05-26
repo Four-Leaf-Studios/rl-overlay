@@ -100,11 +100,22 @@ export type OverlayComponentConfig = {
   id: string;
   overlay_id?: string;
   template_id?: string | null;
+  /**
+   * Registry key for built-in components (e.g. "builtin.scorebug").
+   * Custom JS components can use any code_id.
+   */
   code_id: string;
+  /**
+   * Explicit component type.
+   *   "builtin" — rendered via the built-in React component registry
+   *   "custom"  — rendered as a user-authored JS render() function
+   */
+  component_type?: "builtin" | "custom";
   name?: string;
   enabled?: boolean;
   css?: string;
-  html?: string | null;
+  /** JavaScript render function: function render(ctx) { return htmlString; } */
+  js?: string | null;
   position?: OverlayPosition | null;
   props?: Record<string, unknown>;
   styles?: Record<string, unknown>;

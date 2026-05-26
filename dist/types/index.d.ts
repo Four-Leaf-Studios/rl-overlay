@@ -21,7 +21,7 @@ export * from "./binding/bindingResolver";
 export * from "./rules/ruleEngine";
 export * from "./rules/evaluateCondition";
 export * from "./context/GameStateContext";
-export * from "./components/CustomHtmlComponent";
 export * from "./components/GoalPopup";
 export * from "./components/StatFeed";
 export * from "./components/OverlayComponentRenderer";
+export * from "./components/JsCustomComponent";

@@ -1,6 +1,10 @@
 /**
- * Binding resolver for overlay component props/styles/HTML.
- * Supports syntax: {{path.to.value | filterName}}
+ * Binding resolver for overlay component props and styles.
+ *
+ * Resolves `{{path.to.value | filterName}}` expressions within component
+ * prop and style objects. Supports filters: clock, round, floor, ceil,
+ * percent, uppercase, lowercase, fallback.
+ *
  * Does NOT use eval or Function — uses safe recursive property access.
  */
 /**

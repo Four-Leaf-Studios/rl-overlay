@@ -7,7 +7,7 @@ import type {
 } from "../types";
 import { componentRegistry } from "../registry";
 import { resolveBindingsDeep } from "../binding/bindingResolver";
-import CustomHtmlComponent from "./CustomHtmlComponent";
+import JsCustomComponent from "./JsCustomComponent";
 
 type Props = {
   component: OverlayComponentConfig;
@@ -39,7 +39,7 @@ export const OverlayComponentRenderer = memo(function OverlayComponentRenderer({
   context,
   runtimeState = {},
 }: Props) {
-  const { id, code_id, name, enabled, css, html, position, states } = component;
+  const { id, code_id, name, enabled, css, js, position, states } = component;
 
   // Skip disabled components
   if (enabled === false) return null;
@@ -96,11 +96,8 @@ export const OverlayComponentRenderer = memo(function OverlayComponentRenderer({
     ...(resolvedStyles as React.CSSProperties),
   };
 
-  // Custom HTML component
-  if (code_id === "custom.html" || html) {
-    const resolvedHtml = html
-      ? (resolveBindingsDeep(html, ctxObj) as string)
-      : "";
+  // Custom component — sandboxed iframe with JavaScript render function
+  if (js) {
     return (
       <div
         className={`overlay-slot ${classNames}`}
@@ -108,11 +105,12 @@ export const OverlayComponentRenderer = memo(function OverlayComponentRenderer({
         data-component-name={name}
         style={combinedStyle}
       >
-        {css && <style>{css}</style>}
-        <CustomHtmlComponent
+        <JsCustomComponent
           id={id}
-          html={resolvedHtml}
+          js={js}
+          css={css}
           className={classNames}
+          context={ctxObj}
         />
       </div>
     );
