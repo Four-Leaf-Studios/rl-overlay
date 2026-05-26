@@ -25,3 +25,4 @@ export * from "./components/GoalPopup";
 export * from "./components/StatFeed";
 export * from "./components/OverlayComponentRenderer";
 export * from "./components/JsCustomComponent";
+export type { OverlayDataContext } from "./types";

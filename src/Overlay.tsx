@@ -5,7 +5,12 @@ import { RLProvider, WebsocketData } from "@four-leaf-studios/rl-socket-hook";
 import { BroadcastProvider } from "./context/BroadcastContext";
 import { GameStateProvider, useGameState } from "./context/GameStateContext";
 import { useRuleEngine } from "./rules/ruleEngine";
-import type { Broadcast, OverlayObject, OverlayComponentConfig } from "./types";
+import type {
+  Broadcast,
+  OverlayObject,
+  OverlayComponentConfig,
+  OverlayDataContext,
+} from "./types";
 import { useOverlayStyles } from "./hooks/useOverlayStyles";
 
 import Scoreboard from "./Scoreboard";
@@ -25,6 +30,8 @@ export type OverlayProps = {
   preview?: boolean;
   /** Optional mock SOS event to inject (for editor preview) */
   mockEvent?: { name: string; payload?: unknown } | null;
+  /** When set, overrides live WebSocket game state (for editor preview). */
+  mockState?: OverlayDataContext;
   renderSlot?: (
     comp: OverlayComponentConfig,
     Comp: React.ComponentType<any>,
@@ -37,6 +44,7 @@ function OverlayInner({
   overlay,
   preview,
   mockEvent,
+  mockState,
   renderSlot,
 }: OverlayProps) {
   const components = overlay.components ?? [];
@@ -47,8 +55,9 @@ function OverlayInner({
   // Inject team color CSS variables
   useOverlayStyles(broadcast);
 
-  // Normalized game state from SOS socket
-  const gameContext = useGameState();
+  // Normalized game state from SOS socket (or mock state in editor preview)
+  const liveGameContext = useGameState();
+  const gameContext = mockState ?? liveGameContext;
 
   // Rule engine
   const { runtimeState } = useRuleEngine(rules, components, gameContext);
@@ -80,7 +89,7 @@ function OverlayInner({
       (c) =>
         c.states !== undefined ||
         c.props !== undefined ||
-        c.html !== undefined ||
+        c.js !== undefined ||
         c.enabled === false,
     );
 
@@ -141,6 +150,7 @@ export const Overlay = ({
   overlay,
   preview,
   mockEvent,
+  mockState,
   renderSlot,
 }: OverlayProps) => {
   useOverlayStyles(broadcast);
@@ -148,12 +158,13 @@ export const Overlay = ({
   return (
     <BroadcastProvider broadcast={broadcast}>
       <RLProvider>
-        <GameStateProvider broadcast={broadcast}>
+        <GameStateProvider broadcast={broadcast} mockState={mockState}>
           <OverlayInner
             broadcast={broadcast}
             overlay={overlay}
             preview={preview}
             mockEvent={mockEvent}
+            mockState={mockState}
             renderSlot={renderSlot}
           />
         </GameStateProvider>

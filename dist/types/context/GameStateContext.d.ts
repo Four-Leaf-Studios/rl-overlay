@@ -8,5 +8,7 @@ export declare function useNormalizedGameState(broadcast?: unknown): OverlayData
 export declare const GameStateProvider: React.FC<{
     children: React.ReactNode;
     broadcast?: unknown;
+    /** When provided, overrides the live WebSocket state (for editor preview). */
+    mockState?: OverlayDataContext;
 }>;
 export declare function useGameState(): OverlayDataContext;

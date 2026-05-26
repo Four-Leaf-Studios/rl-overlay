@@ -94,8 +94,11 @@ export function useNormalizedGameState(
 export const GameStateProvider: React.FC<{
   children: React.ReactNode;
   broadcast?: unknown;
-}> = ({ children, broadcast }) => {
-  const state = useNormalizedGameState(broadcast);
+  /** When provided, overrides the live WebSocket state (for editor preview). */
+  mockState?: OverlayDataContext;
+}> = ({ children, broadcast, mockState }) => {
+  const liveState = useNormalizedGameState(broadcast);
+  const state = mockState ?? liveState;
   return (
     <GameStateContext.Provider value={state}>
       {children}
