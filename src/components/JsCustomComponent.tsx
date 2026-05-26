@@ -43,7 +43,7 @@ function scopeCss(css: string, componentId: string): string {
  */
 function buildSrcdoc(
   js: string,
-  scopedCss: string,
+  css: string,
   context: Record<string, unknown>,
 ): string {
   const ctxJson = JSON.stringify(context);
@@ -56,7 +56,7 @@ function buildSrcdoc(
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body { width: 100%; height: 100%; background: transparent; overflow: hidden; }
 </style>
-<style id="component-css">${scopedCss}</style>
+<style id="component-css">${css}</style>
 </head>
 <body>
 <div id="root"></div>
@@ -143,10 +143,10 @@ export const JsCustomComponent = memo(function JsCustomComponent({
 
   // Initial srcdoc — set once on mount / when js or css changes
   const srcdoc = useMemo(
-    () => buildSrcdoc(js, scopedCss, context),
+    () => buildSrcdoc(js, css ?? "", context),
     // Only rebuild the whole doc when js or css changes, not every context tick
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [js, scopedCss],
+    [js, css],
   );
 
   // Track whether the iframe has loaded so we can safely postMessage
@@ -156,9 +156,9 @@ export const JsCustomComponent = memo(function JsCustomComponent({
   useEffect(() => {
     readyRef.current = false;
     const iframe = iframeRef.current;
-    if (iframe) iframe.srcdoc = buildSrcdoc(js, scopedCss, context);
+    if (iframe) iframe.srcdoc = buildSrcdoc(js, css ?? "", context);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [js, scopedCss]);
+  }, [js, css]);
 
   // When context changes (game ticks), push an update message
   useEffect(() => {
